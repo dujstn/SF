@@ -10,7 +10,7 @@ np.set_printoptions(threshold=np.inf)
 def writeTxt(uniques, name):
     uniquesString = ";".join(uniques)
 
-    txt = open(os.path.join(os.path.dirname(__file__), name), "w")
+    txt = open(os.path.join("SF/SF 2020-2021/Model Utility Folder/Filtering","Text Documents", name), "w")
     txt.write(uniquesString)
     txt.close()
 
@@ -23,8 +23,8 @@ def getUniques(data):
 
 
 # Read data from Insolation & Economics spreadsheets into dataframes
-munInso = pd.read_csv(os.path.join(os.path.dirname(__file__), "Municipality Insolation.csv"))
-curEcon = pd.read_csv(os.path.join(os.path.dirname(__file__), "Current Economics.csv"))
+munInso = pd.read_csv(os.path.join("SF/SF 2020-2021/Model Utility Folder/Filtering", "Municipality Insolation.csv"))
+curEcon = pd.read_csv(os.path.join("SF/SF 2020-2021/Model Utility Folder/Filtering", "Current Economics.csv"))
 
 
 # Gather unique names of locations inside Economics spreadsheet
@@ -41,8 +41,8 @@ munInsoCompare = getUniques(munInso_cities)
 
 # Find the locations that aren't common to both sets
 output = np.setdiff1d(curEconCompare, munInsoCompare)
-writeTxt(output, "OutputOne.txt")
+writeTxt(output, "InsoOnEcon.txt")
 
 # Compared Economics to Insolation; need to do it the other way around
 outputTwo = np.setdiff1d(munInsoCompare, curEconCompare)
-writeTxt(outputTwo, "OutputTwo.txt")
+writeTxt(outputTwo, "EconOnInso.txt")

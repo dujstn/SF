@@ -1,4 +1,4 @@
-﻿Municipality,Province,Month,Mean daily global insolation (kWh/m2) : S WITH 90,Mean daily global insolation (kWh/m2): S WITH LAT,Mean daily global insolation (kWh/m2): S WITH LAT + 15,Mean daily global insolation (kWh/m2): S WITH LAT - 15,Mean daily global insolation (kWh/m2): 2 AXIS TRACK,Mean daily global insolation (kWh/m2): S WITH 0
+﻿Municipality,Province,Month,S WITH 90,S WITH LAT,S WITH LAT + 15,S WITH LAT - 15,2 AXIS TRACK,S WITH 0
 100 Mile House,BC,Annual,3.13,4.15,3.89,4.19,5.86,3.41
 100 Mile House,BC,April,3.66,5.21,4.78,5.38,7.45,4.67
 100 Mile House,BC,August,3.5,5.36,4.79,5.64,8.09,5.17
