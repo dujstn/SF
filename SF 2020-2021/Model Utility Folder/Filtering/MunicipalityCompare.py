@@ -4,17 +4,17 @@ import numpy as np
 np.set_printoptions(threshold=np.inf)
 
 
-#Function to write city names into .txt files from numpy ndarrays
+# Function to write city names into .txt files from numpy ndarrays
 
 
 def writeTxt(uniques, name):
     uniquesString = ";".join(uniques)
 
-    txt = open(os.path.join("SF/SF 2020-2021/Model Utility Folder/Filtering","Text Documents", name), "w")
+    txt = open(os.path.join("SF/SF 2020-2021/Model Utility Folder/Filtering/Text Documents", name), "w")
     txt.write(uniquesString)
     txt.close()
 
-#Function to get a list of unique city names so that they cam be compared
+# Function to get a list of unique city names so that they cam be compared
 
 
 def getUniques(data):
@@ -23,8 +23,8 @@ def getUniques(data):
 
 
 # Read data from Insolation & Economics spreadsheets into dataframes
-munInso = pd.read_csv(os.path.join("SF/SF 2020-2021/Model Utility Folder/Filtering", "Municipality Insolation.csv"))
-curEcon = pd.read_csv(os.path.join("SF/SF 2020-2021/Model Utility Folder/Filtering", "Current Economics.csv"))
+munInso = pd.read_csv("SF/SF 2020-2021/Data/Municipality Insolation.csv")
+curEcon = pd.read_csv("SF/SF 2020-2021/Data/Current Economics.csv")
 
 
 # Gather unique names of locations inside Economics spreadsheet
