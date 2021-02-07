@@ -1,2 +1,0 @@
-municip_kWh.csv filter=lfs diff=lfs merge=lfs -text
-solar-power-generation-and-breakeven-economics-by-project-type-and[[:space:]]community-data-set.csv filter=lfs diff=lfs merge=lfs -text
