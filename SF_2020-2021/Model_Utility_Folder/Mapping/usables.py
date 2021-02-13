@@ -7,18 +7,18 @@ from shapely.geometry import Point
 import os
 
 # Reading and taking the lat. and long. of unique locaitons
-cities = pd.read_csv("SF/SF_2020-2021/Data/FilteredEcon.csv")
+cities = pd.read_csv("SF_2020-2021/Data/FilteredEcon.csv")
 locations = cities[["Municipality", "Latitude", "Longitude"]]
 uniques = locations.drop_duplicates(subset=["Municipality"])
-uniques.to_csv("SF/SF_2020-2021/Data/Usables.csv", index=0)
+uniques.to_csv("SF_2020-2021/Data/Usables.csv", index=0)
 
 # Setting up .shp map of Canada
 map = gpd.read_file(
-    "SF/SF_2020-2021/Model_Utility_Folder/Mapping/Shapefile/gpr_000b11a_e.shp")
+    "SF_2020-2021/Model_Utility_Folder/Mapping/Shapefile/gpr_000b11a_e.shp")
 fig, ax = plt.subplots(figsize=(30, 30))
 
 # Creating location points
-points = pd.read_csv("SF/SF_2020-2021/Data/Usables.csv")
+points = pd.read_csv("SF_2020-2021/Data/Usables.csv")
 crs = {"init": "epsg:4326"}
 
 geometry = [Point(xy) for xy in zip(points["Longitude"], points["Latitude"])]

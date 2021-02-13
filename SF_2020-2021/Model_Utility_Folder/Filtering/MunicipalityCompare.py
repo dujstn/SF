@@ -10,7 +10,7 @@ np.set_printoptions(threshold=np.inf)
 def writeTxt(uniques, name):
     uniquesString = ";".join(uniques)
 
-    txt = open(os.path.join("SF/SF_2020-2021/Model_Utility_Folder/Filtering/Text_Documents", name), "w")
+    txt = open(os.path.join("SF_2020-2021/Model_Utility_Folder/Filtering/Text_Documents", name), "w")
     txt.write(uniquesString)
     txt.close()
 
@@ -23,8 +23,8 @@ def getUniques(data):
 
 
 # Read data from Insolation & Economics spreadsheets into dataframes
-munInso = pd.read_csv("SF/SF_2020-2021/Data/Municipality Insolation.csv")
-curEcon = pd.read_csv("SF/SF_2020-2021/Data/Current Economics.csv")
+munInso = pd.read_csv("SF_2020-2021/Data/Municipality Insolation.csv")
+curEcon = pd.read_csv("SF_2020-2021/Data/Current Economics.csv")
 
 
 # Gather unique names of locations inside Economics spreadsheet
