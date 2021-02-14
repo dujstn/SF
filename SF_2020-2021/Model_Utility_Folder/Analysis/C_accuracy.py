@@ -5,7 +5,7 @@ import numpy
 from sklearn.metrics import accuracy_score
 import csv
 
-file = open("SF_2020-2021/Model_Utility_Folder/Analysis/OutputTxts/B_K5.txt").read()
+file = open("SF_2020-2021/Model_Utility_Folder/Analysis/OutputTxts/C_K1.txt").read()
 z = [list(value) for value in file.split(", ")]
 output = []
 for i in z:
@@ -13,7 +13,7 @@ for i in z:
 predict = [float(i) for i in output]
 
 evaluate = pd.read_csv("SF_2020-2021/Data/B_EVAL.csv")
-expected = evaluate[["First Yr Annual (MWh)"]]
+expected = evaluate[["Breakeven Price ($/MWh)"]]
 expectedList = [list(row) for row in expected.values]
 x = []
 for i in expectedList:
@@ -27,7 +27,7 @@ for i in range(len(output)):
     listOfAccuracies.append(abs((predict[i]-actuals[i])/actuals[i]*100))
 
 df = pd.DataFrame(data={"Prediction": predict, "Actual": actuals, "Error %": listOfAccuracies})
-df.to_csv(os.path.join("SF_2020-2021/Model_Utility_Folder/Analysis", "B_K5.csv"), sep=",", index=False)
+df.to_csv(os.path.join("SF_2020-2021/Model_Utility_Folder/Analysis", "C_K1.csv"), sep=",", index=False)
 
 def mean(list):
     return sum(list)/len(list)
