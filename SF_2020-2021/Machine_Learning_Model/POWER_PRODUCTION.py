@@ -50,6 +50,6 @@ evalList = [list(row) for row in feats_EVAL.values]
 expected = eval2[["First Yr Annual (MWh)"]]
 expectedList = [list(row) for row in expected.values]
 
-output = knn(trainList, evalList, k=2, distanceFN=euclidDis, choiceFN=mean)
+output = knn(trainList, evalList, k=5, distanceFN=euclidDis, choiceFN=mean)
 
 print(output)
