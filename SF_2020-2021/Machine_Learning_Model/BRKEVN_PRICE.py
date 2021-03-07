@@ -38,17 +38,14 @@ def euclidDis(ptOne, ptTwo):
     return math.sqrt(distanceSqrdSum)
 
 # Main function
-train = pd.read_csv("SF_2020-2021/Data/B_TRAIN.csv")
-eval2 = pd.read_csv("SF_2020-2021/Data/B_EVAL.csv")
+train = pd.read_csv("SF_2020-2021/Data/TRAIN.csv")
+eval2 = pd.read_csv("SF_2020-2021/Data/EVAL.csv")
 
 feats_TRAIN = train[["Array Type", "Market Pricing", "Utility-scale Tariff Applied", "First Yr Annual (MWh)", "Reference Price ($/MWh)", "Total Capacity (MW)", "Breakeven Price ($/MWh)"]]
 trainList = [list(row) for row in feats_TRAIN.values]
 
 feats_EVAL = eval2[["Array Type", "Market Pricing", "Utility-scale Tariff Applied", "First Yr Annual (MWh)", "Reference Price ($/MWh)", "Total Capacity (MW)"]]
 evalList = [list(row) for row in feats_EVAL.values]
-
-expected = eval2[["Breakeven Price ($/MWh)"]]
-expectedList = [list(row) for row in expected.values]
 
 output = knn(trainList, evalList, k=25, distanceFN=euclidDis, choiceFN=mean)
 
