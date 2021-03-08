@@ -22,12 +22,14 @@ class knn():
 
     # Fit data to model
     def fit(self, data, query):
+        dictionary = []
         for item in query:
             distAndIndi = []
             for index, example in enumerate(data):
                 distance = self.euclidDis(example[:-1], item)
                 distAndIndi.append((distance, index))
-        return distAndIndi
+            dictionary.append(distAndIndi)
+        return dictionary
 
     # Evaluate data and make predictions
     def predict(self, data, query, k, dictionary):
@@ -56,20 +58,43 @@ trainList = [list(row) for row in feats_TRAIN.values]
 feats_EVAL = eval2[["Array Type", "Market Pricing", "Utility-scale Tariff Applied", "First Yr Annual (MWh)", "Reference Price ($/MWh)", "Total Capacity (MW)"]]
 evalList = [list(row) for row in feats_EVAL.values]
 
+# Model fitting
+
 output = knn()
 model = output.fit(trainList, evalList)
+print(model)
 
-# To load state of model
+
+# PICKLE TO SAVE AND LOAD STATES OF MODEL
 filename = "SF_2020-2021/Model_Utility_Folder/Validation/pickle.pkl"
 
 
 with open(filename, "wb") as file:
     pickle.dump(model, file)
 
+"""
+with open(filename, "rb") as file:
+    model = pickle.load(file)
+"""
+"""
+# Prepping data for evaluation
+x = open("SF_2020-2021/Model_Utility_Folder/Validation/distAndIndi.txt").read()
+output = [list(value) for value in x.split("; ")]
+list = []
+for i in output:
+    list.append("".join(i))
+aux = []
+for value in list:
+    x = value.split(", ")
+    x[0] = float(x[0])
+    x[1] = int(x[1])
+    aux.append(x)
 
-#with open(filename, "rb") as file:
-    #model = pickle.load(file)
-
+# Evaluation of datapoints
+model = knn()
+print(aux)
+x = model.predict(trainList, evalList, k=1, dictionary=aux)
+"""
 
 # CV
 """
