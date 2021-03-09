@@ -1,13 +1,8 @@
 import pandas as pd
-import matplotlib.pyplot as plt
 import numpy as np
-import os
-import math
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.metrics import mean_absolute_error
 from sklearn.model_selection import GridSearchCV
-import pickle
-np.set_printoptions(threshold=np.inf)
 
 # Main function
 train = pd.read_csv("SF_2020-2021/Data/TRAIN.csv")
@@ -22,7 +17,6 @@ feats_EVAL = eval[["Array Type", "Market Pricing", "Utility-scale Tariff Applied
 evalFeatList = [list(row) for row in feats_EVAL.values]
 label_EVAL = eval[["Breakeven Price ($/MWh)"]]
 evalLabelList = [list(row) for row in label_EVAL.values]
-evalLabelList = np.array(evalLabelList)
 
 # Evaluation of datapoints
 model = KNeighborsRegressor()
