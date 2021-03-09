@@ -4,7 +4,7 @@ from sklearn.neighbors import KNeighborsRegressor
 from sklearn.metrics import mean_absolute_error
 from sklearn.model_selection import GridSearchCV
 
-# Main function
+# Data Preparation
 train = pd.read_csv("SF_2020-2021/Data/TRAIN.csv")
 eval = pd.read_csv("SF_2020-2021/Data/EVAL.csv")
 
@@ -18,7 +18,7 @@ evalFeatList = [list(row) for row in feats_EVAL.values]
 label_EVAL = eval[["Breakeven Price ($/MWh)"]]
 evalLabelList = [list(row) for row in label_EVAL.values]
 
-# Evaluation of datapoints
+# Model Evaluation
 model = KNeighborsRegressor()
 knn_grid = {'n_neighbors': np.arange(1, 10)}
 model_knn = GridSearchCV(model, knn_grid, cv=10)
