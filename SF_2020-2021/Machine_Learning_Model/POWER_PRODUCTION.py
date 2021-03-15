@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 np.set_printoptions(threshold=np.inf)
 
 # Data Preparation
-train = pd.read_csv("SF_2020-2021/Data/B_TRAIN.csv")
-eval = pd.read_csv("SF_2020-2021/Data/B_EVAL.csv")
+train = pd.read_csv("SF_2020-2021/Data/TRAIN.csv")
+eval = pd.read_csv("SF_2020-2021/Data/EVAL.csv")
 
 feats_TRAIN = train[["Latitude", "Longitude", "Array Type", "Total Capacity (MW)", "Annual"]]
 trainFeatList = [list(row) for row in feats_TRAIN.values]
